@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete the following course?</h3>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>{{to_delete.name}}</td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>{{to_delete.content}}</td>
+        </tr>
+    </table>
+    <form action="cancel" method="post">
+        {% csrf_token %}
+        <input type="submit" value="No">
+    </form>
+    <form action="aprove/{{to_delete.id}}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes">
+    </form>
+</body>
+</html>
